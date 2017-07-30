@@ -15,7 +15,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var takePhotoButton: UIButton!
-//    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var doneButton: UIButton!
     
     var photos = [UIImage]()
     
@@ -31,6 +31,28 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: CollectionView
+    
+    
+
     //UICollectionViewDelegateFlowLayout methods
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
     {
@@ -59,6 +81,20 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
         return cell
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
     // MARK: Camera shit
@@ -111,6 +147,42 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
         picker.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // MARK: Sending photos to server
+    
+    @IBAction func sendToServer(_ sender: UIButton) {
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
