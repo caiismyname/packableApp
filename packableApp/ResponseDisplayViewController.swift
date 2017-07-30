@@ -202,6 +202,28 @@ class ReponseDisplayViewController: UIViewController {
     }
     
     @IBAction func contractAction(_ sender: UIButton) {
+        
+        for node in (sceneView.scene?.rootNode.childNodes)! {
+            
+            if (node.position.x > binCenterX) {
+                node.position.x -= abs(node.position.x - binCenterX)/3
+            } else {
+                node.position.x += abs(node.position.x - binCenterX)/3
+            }
+            
+            if (node.position.y > binCenterY) {
+                node.position.y -= abs(node.position.y - binCenterY)/3
+            } else {
+                node.position.y += abs(node.position.y - binCenterY)/3
+            }
+            
+            if (node.position.z > binCenterZ) {
+                node.position.z -= abs(node.position.z - binCenterZ)/3
+            } else {
+                node.position.z += abs(node.position.z - binCenterZ)/3
+            }
+        }
+        
     }
     
     
