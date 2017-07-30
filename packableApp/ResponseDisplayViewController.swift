@@ -6,13 +6,19 @@ class ReponseDisplayViewController: UIViewController {
   // UI
   @IBOutlet weak var geometryLabel: UILabel!
   @IBOutlet weak var sceneView: SCNView!
-    @IBOutlet weak var expandButton: UIButton!
+  @IBOutlet weak var expandButton: UIButton!
+    @IBOutlet weak var contractButton: UIButton!
   
   // Geometry
   var geometryNode: SCNNode = SCNNode()
   
   // Gestures
   var currentAngle: Float = 0.0
+    
+  // Bin Center
+    var binCenterX:Float = 0.0
+    var binCenterY:Float = 0.0
+    var binCenterZ:Float = 0.0
 
     
   // MARK: Lifecycle
@@ -157,6 +163,10 @@ class ReponseDisplayViewController: UIViewController {
         let binBackWall = SCNNode(geometry: binBackWallGeometry)
         binBackWall.position = SCNVector3(x: Float(binLength/2), y: Float(binHeight/2), z: 0)
         scene.rootNode.addChildNode(binBackWall)
+        
+        binCenterX = Float(binLength/2)
+        binCenterY = Float(binHeight/2)
+        binCenterZ = Float(binWidth/2)
 
     }
     
@@ -169,7 +179,31 @@ class ReponseDisplayViewController: UIViewController {
     }
 
     @IBAction func expandAction(_ sender: UIButton) {
+        for node in (sceneView.scene?.rootNode.childNodes)! {
+        
+            if (node.position.x > binCenterX) {
+                node.position.x += abs(node.position.x - binCenterX)/2
+            } else {
+                node.position.x -= abs(node.position.x - binCenterX)/2
+            }
+            
+            if (node.position.y > binCenterY) {
+                node.position.y += abs(node.position.y - binCenterY)/2
+            } else {
+                node.position.y -= abs(node.position.y - binCenterY)/2
+            }
+            
+            if (node.position.z > binCenterZ) {
+                node.position.z += abs(node.position.z - binCenterZ)/2
+            } else {
+                node.position.z -= abs(node.position.z - binCenterZ)/2
+            }
+        }
     }
+    
+    @IBAction func contractAction(_ sender: UIButton) {
+    }
+    
     
     
 }

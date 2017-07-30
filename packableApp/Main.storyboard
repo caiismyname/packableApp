@@ -138,11 +138,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-9S-R7o">
-                                <rect key="frame" x="54" y="28" width="514" height="272"/>
+                                <rect key="frame" x="62" y="24" width="506" height="296"/>
                                 <color key="backgroundColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </sceneKitView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0q-sr-0gX">
-                                <rect key="frame" x="8" y="28" width="46" height="30"/>
+                                <rect key="frame" x="15" y="28" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
@@ -150,11 +150,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qGx-yj-F9p">
-                                <rect key="frame" x="3" y="62" width="51" height="30"/>
+                                <rect key="frame" x="10" y="62" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Expand"/>
                                 <connections>
                                     <action selector="expandAction:" destination="kQC-t8-k2Y" eventType="touchUpInside" id="BD4-ME-Xo9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Fx-cZ-DOe">
+                                <rect key="frame" x="1" y="100" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Contract"/>
+                                <connections>
+                                    <action selector="contractAction:" destination="kQC-t8-k2Y" eventType="touchUpInside" id="ryj-c6-TUO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,6 +175,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="contractButton" destination="3Fx-cZ-DOe" id="CZF-Rp-5WD"/>
                         <outlet property="expandButton" destination="qGx-yj-F9p" id="2Uw-gh-CQc"/>
                         <outlet property="sceneView" destination="6AR-9S-R7o" id="iDf-fE-4hz"/>
                     </connections>
