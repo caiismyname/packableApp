@@ -3,7 +3,7 @@
 import UIKit
 import SceneKit
 
-class ViewController: UIViewController {
+class ReponseDisplayViewController: UIViewController {
   // UI
   @IBOutlet weak var geometryLabel: UILabel!
   @IBOutlet weak var sceneView: SCNView!
