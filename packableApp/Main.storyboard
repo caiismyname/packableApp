@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kQC-t8-k2Y">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6dn-lU-jk7">
+            <objects>
+                <viewController id="kQC-t8-k2Y" customClass="ViewController" customModule="CarbonVisualizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hYx-gu-9hy"/>
+                        <viewControllerLayoutGuide type="bottom" id="770-eV-Tev"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CvP-vF-jX7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" loops="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AR-9S-R7o">
+                                <rect key="frame" x="0.0" y="28" width="320" height="520"/>
+                                <color key="backgroundColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.63921568630000003" green="0.63921568630000003" blue="0.63921568630000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6AR-9S-R7o" firstAttribute="leading" secondItem="CvP-vF-jX7" secondAttribute="leading" id="6XU-Yf-fNt"/>
+                            <constraint firstItem="6AR-9S-R7o" firstAttribute="top" secondItem="hYx-gu-9hy" secondAttribute="bottom" constant="8" symbolic="YES" id="7VJ-Fw-q5J"/>
+                            <constraint firstAttribute="centerX" secondItem="6AR-9S-R7o" secondAttribute="centerX" id="jD4-LS-02o"/>
+                            <constraint firstAttribute="bottom" secondItem="6AR-9S-R7o" secondAttribute="bottom" constant="20" symbolic="YES" id="jh2-su-hFN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="6AR-9S-R7o" id="iDf-fE-4hz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCr-kA-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="371.83098591549299"/>
+        </scene>
+    </scenes>
+</document>

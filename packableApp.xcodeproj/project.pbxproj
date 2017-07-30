@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		2709CDB61F2D673A00F9BE59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDB51F2D673A00F9BE59 /* AppDelegate.swift */; };
 		2709CDB81F2D673A00F9BE59 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDB71F2D673A00F9BE59 /* art.scnassets */; };
-		2709CDBA1F2D673A00F9BE59 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDB91F2D673A00F9BE59 /* GameViewController.swift */; };
-		2709CDBD1F2D673A00F9BE59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDBB1F2D673A00F9BE59 /* Main.storyboard */; };
 		2709CDBF1F2D673A00F9BE59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDBE1F2D673A00F9BE59 /* Assets.xcassets */; };
 		2709CDC21F2D673A00F9BE59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDC01F2D673A00F9BE59 /* LaunchScreen.storyboard */; };
 		2709CDCD1F2D673A00F9BE59 /* packableAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDCC1F2D673A00F9BE59 /* packableAppUITests.swift */; };
+		2709CDD81F2D8AF300F9BE59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDD71F2D8AF300F9BE59 /* ViewController.swift */; };
+		2709CDDA1F2D8B1A00F9BE59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,14 +30,14 @@
 		2709CDB21F2D673A00F9BE59 /* packableApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = packableApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2709CDB51F2D673A00F9BE59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2709CDB71F2D673A00F9BE59 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		2709CDB91F2D673A00F9BE59 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
-		2709CDBC1F2D673A00F9BE59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2709CDBE1F2D673A00F9BE59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2709CDC11F2D673A00F9BE59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2709CDC31F2D673A00F9BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2709CDC81F2D673A00F9BE59 /* packableAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = packableAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2709CDCC1F2D673A00F9BE59 /* packableAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = packableAppUITests.swift; sourceTree = "<group>"; };
 		2709CDCE1F2D673A00F9BE59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2709CDD71F2D8AF300F9BE59 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,10 +79,10 @@
 		2709CDB41F2D673A00F9BE59 /* packableApp */ = {
 			isa = PBXGroup;
 			children = (
+				2709CDD71F2D8AF300F9BE59 /* ViewController.swift */,
 				2709CDB51F2D673A00F9BE59 /* AppDelegate.swift */,
 				2709CDB71F2D673A00F9BE59 /* art.scnassets */,
-				2709CDB91F2D673A00F9BE59 /* GameViewController.swift */,
-				2709CDBB1F2D673A00F9BE59 /* Main.storyboard */,
+				2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */,
 				2709CDBE1F2D673A00F9BE59 /* Assets.xcassets */,
 				2709CDC01F2D673A00F9BE59 /* LaunchScreen.storyboard */,
 				2709CDC31F2D673A00F9BE59 /* Info.plist */,
@@ -185,9 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2709CDB81F2D673A00F9BE59 /* art.scnassets in Resources */,
+				2709CDDA1F2D8B1A00F9BE59 /* Main.storyboard in Resources */,
 				2709CDC21F2D673A00F9BE59 /* LaunchScreen.storyboard in Resources */,
 				2709CDBF1F2D673A00F9BE59 /* Assets.xcassets in Resources */,
-				2709CDBD1F2D673A00F9BE59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2709CDBA1F2D673A00F9BE59 /* GameViewController.swift in Sources */,
+				2709CDD81F2D8AF300F9BE59 /* ViewController.swift in Sources */,
 				2709CDB61F2D673A00F9BE59 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,14 +229,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2709CDBB1F2D673A00F9BE59 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2709CDBC1F2D673A00F9BE59 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2709CDC01F2D673A00F9BE59 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +406,7 @@
 				2709CDD31F2D673A00F9BE59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2709CDD41F2D673A00F9BE59 /* Build configuration list for PBXNativeTarget "packableAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +415,7 @@
 				2709CDD61F2D673A00F9BE59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
