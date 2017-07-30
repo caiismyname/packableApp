@@ -9,11 +9,15 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
+    let reuseIdentifier = "photoCell"
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var takePhotoButton: UIButton!
-    @IBOutlet weak var imageView: UIImageView!
+//    @IBOutlet weak var imageView: UIImageView!
+    
+    var photos = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +30,40 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //UICollectionViewDelegateFlowLayout methods
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat
+    {
+        return 4;
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat
+    {
+        return 1;
+    }
+    
+    
+    //UICollectionViewDatasource methods
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! PhotoDisplayCellViewControllerCollectionViewCell
+        
+        cell.backgroundColor = UIColor.black
+        cell.imageView.image = photos[indexPath.row]
+    
+        return cell
+    }
+    
+
+    // MARK: Camera shit
+    
+    
     
     func checkCameraPermission() {
         let authStatus = AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo)
@@ -68,8 +106,8 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleToFill
-            imageView.image = pickedImage
+            photos.append(pickedImage)
+            collectionView.reloadData()
         }
         picker.dismiss(animated: true, completion: nil)
     }

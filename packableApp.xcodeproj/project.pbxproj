@@ -16,6 +16,7 @@
 		2709CDDA1F2D8B1A00F9BE59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */; };
 		2709CDDC1F2DA01600F9BE59 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDDB1F2DA01600F9BE59 /* HomeViewController.swift */; };
 		2709CDDE1F2DA52E00F9BE59 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDDD1F2DA52E00F9BE59 /* CameraViewController.swift */; };
+		2709CDE21F2DCB2200F9BE59 /* PhotoDisplayCellViewControllerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709CDE11F2DCB2200F9BE59 /* PhotoDisplayCellViewControllerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2709CDDB1F2DA01600F9BE59 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2709CDDD1F2DA52E00F9BE59 /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		2709CDE11F2DCB2200F9BE59 /* PhotoDisplayCellViewControllerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDisplayCellViewControllerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				2709CDDD1F2DA52E00F9BE59 /* CameraViewController.swift */,
 				2709CDD71F2D8AF300F9BE59 /* ResponseDisplayViewController.swift */,
 				2709CDB51F2D673A00F9BE59 /* AppDelegate.swift */,
+				2709CDE11F2DCB2200F9BE59 /* PhotoDisplayCellViewControllerCollectionViewCell.swift */,
 				2709CDB71F2D673A00F9BE59 /* art.scnassets */,
 				2709CDD91F2D8B1A00F9BE59 /* Main.storyboard */,
 				2709CDBE1F2D673A00F9BE59 /* Assets.xcassets */,
@@ -214,6 +217,7 @@
 				2709CDD81F2D8AF300F9BE59 /* ResponseDisplayViewController.swift in Sources */,
 				2709CDDE1F2DA52E00F9BE59 /* CameraViewController.swift in Sources */,
 				2709CDB61F2D673A00F9BE59 /* AppDelegate.swift in Sources */,
+				2709CDE21F2DCB2200F9BE59 /* PhotoDisplayCellViewControllerCollectionViewCell.swift in Sources */,
 				2709CDDC1F2DA01600F9BE59 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
