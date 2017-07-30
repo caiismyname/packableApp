@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FG7-jH-6wJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kQC-t8-k2Y">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -88,9 +88,9 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpi-up-w98">
-                                <rect key="frame" x="496" y="26" width="37" height="30"/>
+                                <rect key="frame" x="496" y="26" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Pack!"/>
                                 <connections>
                                     <action selector="sendToServer:" destination="g5L-Ug-y3U" eventType="touchUpInside" id="7Cn-gS-fIA"/>
                                 </connections>
@@ -146,7 +146,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <segue destination="WVL-NL-xj5" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="OJb-0d-OLj"/>
+                                    <segue destination="WVL-NL-xj5" kind="unwind" unwindAction="unwindToHomeWithSegue:" id="zdF-am-2CT"/>
                                 </connections>
                             </button>
                         </subviews>

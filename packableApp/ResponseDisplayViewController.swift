@@ -1,24 +1,22 @@
-
-
 import UIKit
 import SceneKit
+import SwiftyJSON
 
 class ReponseDisplayViewController: UIViewController {
   // UI
   @IBOutlet weak var geometryLabel: UILabel!
   @IBOutlet weak var sceneView: SCNView!
-    
-    // Geometry
-    var geometryNode: SCNNode = SCNNode()
-    
-    // Gestures
-    var currentAngle: Float = 0.0
+  
+  // Geometry
+  var geometryNode: SCNNode = SCNNode()
+  
+  // Gestures
+  var currentAngle: Float = 0.0
+
     
   // MARK: Lifecycle
   override func viewDidLoad() {
       super.viewDidLoad()
-    
-    
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -55,12 +53,15 @@ class ReponseDisplayViewController: UIViewController {
     
     let binColor = SCNMaterial()
     binColor.diffuse.contents = UIColor.red
+    binColor.isDoubleSided = true
     
     let binColorBlue = SCNMaterial()
     binColorBlue.diffuse.contents = UIColor.blue
+    binColorBlue.isDoubleSided = true
     
     let binColorGreen = SCNMaterial()
     binColorGreen.diffuse.contents = UIColor.green
+    binColorGreen.isDoubleSided = true
     
     let binBottomGeometry = SCNPlane(width: length, height: width)
     binBottomGeometry.materials = [binColor]
@@ -82,17 +83,7 @@ class ReponseDisplayViewController: UIViewController {
     binBackWall.position = SCNVector3(x: Float(length/2), y: Float(height/2), z: 0)
     scene.rootNode.addChildNode(binBackWall)
     
-
-    
-    
-    let boxGeometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-    let boxNode = SCNNode(geometry: boxGeometry)
-    scene.rootNode.addChildNode(boxNode)
-    
-    let edgeBoxGeometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-    let edgeBoxNode = SCNNode(geometry: edgeBoxGeometry)
-    edgeBoxNode.position = SCNVector3(x: Float(length), y: Float(height), z: Float(width))
-    scene.rootNode.addChildNode(edgeBoxNode)
+    // Lighting & Camera
     
     let ambientLightNode = SCNNode()
     ambientLightNode.light = SCNLight()
@@ -113,6 +104,45 @@ class ReponseDisplayViewController: UIViewController {
 //    cameraNode.rotation = SCNVector4(x: 1, y: 0, z: 0, w: Float(Double.pi / 6))
     scene.rootNode.addChildNode(cameraNode)
     
+    // Boxes
+    
+    let dataFromNetworking = "[{\"center\":{\"x\":12,\"y\":50,\"z\":25},\"length\":25,\"width\":50,\"height\":100},{\"center\":{\"x\":50,\"y\":25,\"z\":25},\"length\":50,\"width\":50,\"height\":50},{\"center\":{\"x\":50,\"y\":75,\"z\":25},\"length\":50,\"width\":50,\"height\":50}]"
+
+    do {
+    if let data = dataFromNetworking.data(using: String.Encoding.utf8) {
+
+        let jsonBoxes = try JSON(data: data)
+        for (key, subJson) in jsonBoxes {
+            let width = subJson["width"].intValue
+            let height = subJson["height"].intValue
+            let length = subJson["length"].intValue
+            let centerX = subJson["center"]["x"].intValue
+            let centerY = subJson["center"]["y"].intValue
+            let centerZ = subJson["center"]["z"].intValue
+            
+            let boxGeometry = SCNBox(width: CGFloat(width/10), height: CGFloat(height/10), length: CGFloat(length/10), chamferRadius: 0)
+            let boxMaterial = SCNMaterial()
+            boxMaterial.diffuse.contents = randomColor()
+            boxGeometry.materials = [boxMaterial]
+            let boxNode = SCNNode(geometry: boxGeometry)
+            boxNode.position = SCNVector3(x: Float(centerX/10), y: Float(centerY/10), z: Float(centerZ/10))
+            scene.rootNode.addChildNode(boxNode)
+        }
+    }
+    } catch {
+        print("error")
+    }
+    
+    
+    
+    let boxGeometry = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+    let boxNode = SCNNode(geometry: boxGeometry)
+    scene.rootNode.addChildNode(boxNode)
+    
+    
+
+
+    
     geometryNode = boxNode
     sceneView.allowsCameraControl = true
     
@@ -122,12 +152,21 @@ class ReponseDisplayViewController: UIViewController {
     sceneView.scene = scene
 
   }
+    
+    
+    // custom function to generate a random UIColor
+    func randomColor() -> UIColor{
+        let red = CGFloat(drand48())
+        let green = CGFloat(drand48())
+        let blue = CGFloat(drand48())
+        return UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+    }
 
 //    func panGesture(_ sender: UIPanGestureRecognizer) {
 //        let translation = sender.translation(in: sender.view!)
 //        var newAngle = (Float)(translation.x)*(Float)(Double.pi)/180.0
 //        newAngle += currentAngle
-//        
+//
 //        geometryNode.transform = SCNMatrix4MakeRotation(newAngle, 0, 1, 0)
 //        
 //        if(sender.state == UIGestureRecognizerState.ended) {
