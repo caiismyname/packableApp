@@ -3,4 +3,6 @@ use_frameworks!
 
 target ‘packableApp’ do
  pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+ pod 'Firebase/Core'
+ pod 'Firebase/Storage'
 end

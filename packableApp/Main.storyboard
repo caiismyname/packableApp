@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kQC-t8-k2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FG7-jH-6wJ">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -28,6 +28,15 @@
                                 <state key="normal" title="Scan Objects"/>
                                 <connections>
                                     <segue destination="g5L-Ug-y3U" kind="show" id="1jk-Bp-akR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8xW-Vb-TQb">
+                                <rect key="frame" x="257" y="206" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cop out"/>
+                                <connections>
+                                    <action selector="postAction:" destination="FG7-jH-6wJ" eventType="touchUpInside" id="YER-1P-24c"/>
+                                    <segue destination="kQC-t8-k2Y" kind="show" id="D8P-jc-F1z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -183,7 +192,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCr-kA-UFr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="WVL-NL-xj5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="293.66197183098592" y="474.375"/>
+            <point key="canvasLocation" x="-613" y="1286"/>
         </scene>
     </scenes>
 </document>

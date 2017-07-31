@@ -21,6 +21,8 @@ class ReponseDisplayViewController: UIViewController {
     var binCenterZ:Float = 0.0
 
     
+    var dataFromNetworking: String = ""
+    
   // MARK: Lifecycle
   override func viewDidLoad() {
       super.viewDidLoad()
@@ -49,18 +51,19 @@ class ReponseDisplayViewController: UIViewController {
   }
     
   // MARK: Scene
-  func sceneSetup() {
+    func sceneSetup() {
     let scene = SCNScene()
     
     // Boxes
     
-    // Max dimension has to be < 40. Rendering problems otherwise
-    let dataFromNetworking = "[{\"length\":40,\"width\":30,\"height\":20},{\"center\":{\"x\":5,\"y\":5,\"z\":5},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":5,\"y\":5,\"z\":15},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":15,\"y\":5,\"z\":5},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":15,\"y\":5,\"z\":15},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":25,\"y\":5,\"z\":5},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":25,\"y\":5,\"z\":15},\"length\":10,\"width\":10,\"height\":10},{\"center\":{\"x\":5,\"y\":15,\"z\":5},\"length\":10,\"width\":10,\"height\":10}]"
+//    // Max dimension has to be < 40. Rendering problems otherwise
+//    let dataFromNetworking = "[{\"length\":40,\"width\":29.090909090909093,\"height\":40},{\"center\":{\"x\":9.090909090909092,\"y\":9.090909090909092,\"z\":9.090909090909092},\"length\":18.181818181818183,\"width\":18.181818181818183,\"height\":18.181818181818183},{\"center\":{\"x\":27.272727272727273,\"y\":9.090909090909092,\"z\":9.090909090909092},\"length\":18.181818181818183,\"width\":18.181818181818183,\"height\":18.181818181818183},{\"center\":{\"x\":9.090909090909092,\"y\":27.272727272727273,\"z\":9.090909090909092},\"length\":18.181818181818183,\"width\":18.181818181818183,\"height\":18.181818181818183},{\"center\":{\"x\":27.272727272727273,\"y\":27.272727272727273,\"z\":9.090909090909092},\"length\":18.181818181818183,\"width\":18.181818181818183,\"height\":18.181818181818183}]"
     
     do {
         if let data = dataFromNetworking.data(using: String.Encoding.utf8) {
             
             let jsonBoxes = try JSON(data: data)
+//            let jsonBoxes = try JSON(data: "[{\"length\":36.36363636363636,\"width\":36.36363636363636,\"height\":40},{\"center\":{\"x\":18.18181818181818,\"y\":7.2727272727272725,\"z\":3.6363636363636362},\"length\":36.36363636363636,\"width\":10.909090909090908,\"height\":10.909090909090908},{\"center\":{\"x\":18.18181818181818,\"y\":7.2727272727272725,\"z\":14.545454545454545},\"length\":36.36363636363636,\"width\":10.909090909090908,\"height\":10.909090909090908},{\"center\":{\"x\":18.18181818181818,\"y\":7.2727272727272725,\"z\":25.454545454545453},\"length\":36.36363636363636,\"width\":10.909090909090908,\"height\":10.909090909090908},{\"center\":{\"x\":7.2727272727272725,\"y\":3.6363636363636362,\"z\":32.72727272727273},\"length\":18.18181818181818,\"width\":3.6363636363636362,\"height\":3.6363636363636362},{\"center\":{\"x\":25.454545454545453,\"y\":3.6363636363636362,\"z\":32.72727272727273},\"length\":18.18181818181818,\"width\":3.6363636363636362,\"height\":3.6363636363636362},{\"center\":{\"x\":7.2727272727272725,\"y\":7.2727272727272725,\"z\":32.72727272727273},\"length\":18.18181818181818,\"width\":3.6363636363636362,\"height\":3.6363636363636362},{\"center\":{\"x\":3.6363636363636362,\"y\":14.545454545454545,\"z\":3.6363636363636362},\"length\":7.2727272727272725,\"width\":7.2727272727272725,\"height\":7.2727272727272725},{\"center\":{\"x\":3.6363636363636362,\"y\":14.545454545454545,\"z\":10.909090909090908},\"length\":7.2727272727272725,\"width\":7.2727272727272725,\"height\":7.2727272727272725},{\"center\":{\"x\":3.6363636363636362,\"y\":14.545454545454545,\"z\":18.18181818181818},\"length\":7.2727272727272725,\"width\":7.2727272727272725,\"height\":7.2727272727272725},{\"center\":{\"x\":3.6363636363636362,\"y\":14.545454545454545,\"z\":25.454545454545453},\"length\":7.2727272727272725,\"width\":7.2727272727272725,\"height\":7.2727272727272725}]".data(using: String.Encoding.utf8)!)
             
             var firstElement = true
             
@@ -85,7 +88,7 @@ class ReponseDisplayViewController: UIViewController {
                     let centerY = subJson["center"]["y"].floatValue
                     let centerZ = subJson["center"]["z"].floatValue
                     
-                    let boxGeometry = SCNBox(width: CGFloat(width), height: CGFloat(height), length: CGFloat(length), chamferRadius: 0)
+                    let boxGeometry = SCNBox(width: CGFloat(length), height: CGFloat(height), length: CGFloat(width), chamferRadius: 0)
                     let boxMaterial = SCNMaterial()
                     boxMaterial.diffuse.contents = randomColor()
                     boxGeometry.materials = [boxMaterial]

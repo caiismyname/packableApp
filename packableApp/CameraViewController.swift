@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Firebase
+import FirebaseStorage
 
 class CameraViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
@@ -18,10 +20,15 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var doneButton: UIButton!
     
     var photos = [UIImage]()
+    var photoUrls = [String]()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkCameraPermission()
+        
+
+        
 
         // Do any additional setup after loading the view.
     }
@@ -30,6 +37,7 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     
@@ -144,6 +152,32 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             photos.append(pickedImage)
             collectionView.reloadData()
+            
+            // Get a reference to the storage service using the default Firebase App
+            let storage = FIRStorage.storage()
+            
+            // Create a storage reference from our storage service
+            let storageRef = storage.reference()
+            
+            let sessionRef = storageRef.child("images")
+            let filename = pickedImage.description
+            let imageRef = sessionRef.child(filename)
+            
+            let data = UIImageJPEGRepresentation(pickedImage, 0.8)!
+            
+            // Upload the file to the path
+            _ = imageRef.put(data, metadata: nil) { (metadata, error) in
+                guard let metadata = metadata else {
+                    // Uh-oh, an error occurred!
+                    return
+                }
+                // Metadata contains file metadata such as size, content-type, and download URL.
+                let downloadURL = metadata.downloadURL()?.absoluteString
+                self.photoUrls.append(downloadURL!)
+                print(self.photoUrls)
+                
+            }
+            
         }
         picker.dismiss(animated: true, completion: nil)
     }
@@ -151,23 +185,12 @@ class CameraViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     // MARK: Sending photos to server
     
     @IBAction func sendToServer(_ sender: UIButton) {
+    
+        print(photoUrls)
+    
     }
     
     
